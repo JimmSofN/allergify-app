@@ -1,0 +1,166 @@
+<resources>
+    <string name="app_name">Allergify App</string>
+
+    // Same Product
+    <string name="all_activity_next_button">Selanjutnya</string>
+    <string name="activity_landing_screen_image_description">Landing Image</string>
+    <string name="filled_icon_btn_desc">Tombol</string>
+
+    // Bottom Navigation Menu
+    <string name="bottom_navigation_menu_home_fragment">Home</string>
+    <string name="bottom_navigation_menu_analysis_fragment">Analysis</string>
+    <string name="bottom_navigation_menu_history_fragment">History</string>
+    <string name="bottom_navigation_menu_user_profile_fragment">Profile</string>
+
+    // Activity Intro Screen
+    <string name="activity_intro_screen_textview_heading">Allergify</string>
+    <string name="activity_intro_screen_textview_content">Aplikasi pendeteksi alergi dengan AI berkelas</string>
+    <string name="activity_intro_screen_button_text_start">Mulai</string>
+    <string name="activity_intro_screen_textview_already_have_account">Sudah mempunyai akun?</string>
+    <string name="activity_intro_screen_button_text_login">Login</string>
+    <string name="activity_intro_screen_image_description">Vector Illustrattion</string>
+
+    // Activity Landing Screen One
+    <string name="activity_landing_screen_one_textview_heading">Deteksi Alergi dengan Akurat</string>
+    <string name="activity_landing_screen_one_textview_content">Hanya dengan scan barcode saja</string>
+
+    // Activity Landing Screen Two
+    <string name="activity_landing_screen_two_textview_heading">Deteksi teknologi AI yang terbaru</string>
+    <string name="activity_landing_screen_two_textview_content">Teknologi AI terbarukan</string>
+
+    // Activity Landing Screen Three
+    <string name="activity_landing_screen_three_textview_heading">Akurasi terjamin hingga 96 %</string>
+    <string name="activity_landing_screen_three_textview_content">Memiliki akurasi yang tepat</string>
+
+    // Activity Landing Screen Four
+    <string name="activity_landing_screen_four_textview_heading">Masukkan nama Anda</string>
+    <string name="activity_landing_screen_four_textview_content">Kami mau tau nama Anda</string>
+    <string name="activity_landing_screen_four_text_input_layout_textview">Nama Panggilan</string>
+    <string name="activity_landing_screen_four_text_input_layout_hint">Nama</string>
+
+    // Activity Landing Screen Five
+    <string name="activity_landing_screen_five_textview_heading">Pilih jenis kelamin Anda</string>
+    <string name="activity_landing_screen_five_textview_content">Silahkan pilih jenis kelamin anda</string>
+    <string name="activity_landing_screen_five_button_text_man">Pria</string>
+    <string name="activity_landing_screen_five_button_text_woman">Wanita</string>
+
+    // Activity Landing Screen Six
+    <string name="activity_landing_screen_six_textview_heading">Lengkapi data Anda</string>
+    <string name="activity_landing_screen_six_textview_content">Silahkan isi sesuai dengan data Anda</string>
+    <string name="activity_landing_screen_six_text_input_layout_textview_age">Berapa usia Anda?</string>
+    <string name="activity_landing_screen_six_text_input_layout_textview_age_metric">Tahun</string>
+    <string name="activity_landing_screen_six_text_input_layout_textview_height">Berapa tinggi Anda?</string>
+    <string name="activity_landing_screen_six_text_input_layout_textview_height_metric">cm</string>
+    <string name="activity_landing_screen_six_text_input_layout_textview_weight">Berapa Berat Anda?</string>
+    <string name="activity_landing_screen_six_text_input_layout_textview_weight_hint">60</string>
+    <string name="activity_landing_screen_six_text_input_layout_textview_weight_metric">Kg</string>
+
+    // Activity Landing Screen Seven
+    <string name="activity_landing_screen_seven_textview_heading">Pertanyaan singkat</string>
+    <string name="activity_landing_screen_seven_textview_content">Apakah Anda memiliki penyakit kronis?</string>
+    <string name="activity_landing_screen_seven_button_text_no">Tidak Ada \nSaya bebas dari penyakit kronis</string>
+    <string name="activity_landing_screen_seven_button_text_light">Penyakit ringan \nContoh: Asma, allergi, dll</string>
+    <string name="activity_landing_screen_seven_button_text_hard">Penyakit Berat \nContoh: Diabetes, Stroke, dll</string>
+
+    // Activity Register Screen
+    <string name="activity_register_screen_textview_heading">Buat Akun Anda</string>
+    <string name="activity_register_screen_textview_content">Daftarkan akun Anda dan simpan semua perubahan</string>
+    <string name="activity_register_screen_button_text_register_with_google">Daftar dengan Google</string>
+    <string name="activity_register_screen_button_text_register_with_email">Daftar dengan Email</string>
+    <string name="activity_register_screen_error_empty_email">Email tidak boleh kosong</string>
+    <string name="activity_register_screen_invalid_email">Email tidak valid</string>
+    <string name="activity_register_screen_error_empty_password">Password tidak boleh kosong</string>
+    <string name="activity_register_screen_error_password_min_length">Password harus minimal 8 karakter</string>
+    <string name="activity_register_screen_error_password_lowercase">Password harus mengandung huruf kecil</string>
+    <string name="activity_register_screen_error_password_uppercase">Password harus mengandung huruf besar</string>
+    <string name="activity_register_screen_error_password_digit">Password harus mengandung angka</string>
+
+
+    // Activity Register Email Screen
+    <string name="activity_register_email_screen_textview_heading">Daftarkan Email Anda</string>
+    <string name="activity_register_email_screen_textview_content">Daftarkan Email Anda dan simpan semua perubahan</string>
+    <string name="activity_register_email_screen_text_input_layout_email_number_username_hint">Email</string>
+    <string name="activity_register_email_screen_text_input_layout_password_hint">Password</string>
+    <string name="activity_register_email_button_create_account">Buat Akun</string>
+
+    // Activity Login Screen
+    <string name="activity_login_screen_textview_heading">Selamat Datang Kembali Sob</string>
+    <string name="activity_login_screen_textview_content">Masuk ke akun Anda dan simpan semua perubahan</string>
+    <string name="activity_login_screen_button_text_register_with_google">Masuk dengan Google</string>
+    <string name="activity_login_screen_button_text_register_with_email">Masuk dengan Email</string>
+    <string name="activity_login_screen_error_empty_email">Email tidak boleh kosong</string>
+    <string name="activity_login_screen_invalid_email">Email tidak valid</string>
+    <string name="activity_login_screen_error_empty_password">Password tidak boleh kosong</string>
+    <string name="activity_login_screen_error_password_min_length">Password tidak valid</string>
+
+
+    // Activity login Email Screen
+    <string name="activity_login_email_screen_textview_heading">Masuk kembali, dengan akun Anda</string>
+    <string name="activity_login_email_screen_textview_content">Masuk ke akun Anda dan simpan semua perubahan</string>
+    <string name="activity_login_email_screen_text_input_layout_email_number_username_hint">Email</string>
+    <string name="activity_login_email_screen_text_input_layout_password_hint">Password</string>
+    <string name="activity_login_email_button_login_account">Login</string>
+    <string name="activity_login_email_button_forgot_password">Lupa Password?</string>
+
+    // Activity Forgot Password Email Screen
+    <string name="activity_forgot_password_email_text_input_layout_email_number_username_hint">Email</string>
+
+    // Activity Forgot Password Otp Screen
+    <string name="activity_forgot_password_otp_textview_heading">Kami telah mengirimkan kode OTP , harap cek email Anda</string>
+    <string name="activity_forgot_password_otp_input_hint">xxxxxx</string>
+    <string name="activity_forgot_password_otp_button_reset_password">Lanjut</string>
+
+    // Activity Change Password Screen
+    <string name="activity_change_password_textview_heading">Ubah Password Anda</string>
+    <string name="activity_change_password_input_password_hint">Password</string>
+    <string name="activity_change_password_confirm_password_hint">Konfirmasi Password</string>
+    <string name="activity_change_password_button_reset_password">Reset Password</string>
+
+    // Activity Change Password Success Screen
+    <string name="activity_change_password_success_textview_heading">Asik, password kamu berhasil di ubah, yuk langsung aja mulai</string>
+    <string name="activity_change_password_success_button_login_now">Login Sekarang</string>
+
+    // Fragment Home Screen
+    <string name="fragment_home_screen_textview_heading_title">Allergify</string>
+    <string name="fragment_home_screen_textview_information_text">harap perhatikan tingkat toleransi alergi Anda</string>
+    <string name="fragment_home_screen_profile_card_username">Contoh Username</string>
+    <string name="fragment_home_screen_profile_card_email">contohemaildoang@gmail.com</string>
+    <string name="fragment_home_screen_allergy_information_card_title">Informasi Allergi</string>
+
+    // Fragment Profile Screen
+
+
+    // Fragment Analysis Screen
+
+
+    // Pop Up From Reject Camera Request
+    <string name="pop_up_reject_camera_textview_heading">Kami membutuhkan izin Anda</string>
+    <string name="pop_up_reject_camera_textview_content">Kamu haru menyalakan izin untuk kamera jika ingin menggunkan fitur ini di Allergify</string>
+    <string name="pop_up_reject_camera_button_cancel_text">Batalkan</string>
+    <string name="pop_up_reject_camera_button_go_to_setting">Buka Pengaturan</string>
+
+    // Camera Activity Screen
+    <string name="activity_camera_screen_image_capture_content_description">Ambil Gambar</string>
+    <string name="activity_camera_screen_ocr_capture_content_description">Tombol OCr</string>
+    <string name="activity_camera_screen_ocr_capture_textview">OCR Mode</string>
+
+    // Setting Activity Screen
+    <string name="activity_setting_textview_heading">Setting</string>
+    <string name="activity_setting_textview_age">Usia</string>
+    <string name="activity_setting_textview_age_data">20</string>
+    <string name="activity_setting_textview_height">Tinggi</string>
+    <string name="activity_setting_textview_height_data">160</string>
+    <string name="activity_setting_textview_height_metric">cm</string>
+    <string name="activity_setting_textview_weight">Berat</string>
+    <string name="activity_setting_textview_weight_data">60</string>
+    <string name="activity_setting_textview_weight_metric">kg</string>
+    <string name="activity_setting_textview_update">Perbaharui</string>
+    <string name="activity_setting_textview_dark_mode">Mode gelap</string>
+    <string name="activity_setting_textview_vibration">Vibration</string>
+    <string name="activity_setting_textview_terms_and_condition">Terms and condition</string>
+    <string name="activity_setting_textview_privacy_policy">Privacy policy</string>
+    <string name="activity_setting_textview_logout_button">Logout</string>
+
+
+
+</resources>

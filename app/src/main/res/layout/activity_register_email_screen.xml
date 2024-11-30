@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.registerscreen.RegisterEmailScreen">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/backButton"
+            style="?attr/materialIconButtonFilledStyle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="80dp"
+            android:contentDescription="@string/filled_icon_btn_desc"
+            app:backgroundTint="?attr/colorSecondaryContainer"
+            app:icon="@drawable/arrow_back_24px"
+            app:iconTint="?attr/colorOnSecondaryContainer" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/activity_register_email_screen_textview_heading"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/activity_register_email_screen_textview_content"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="12sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="?attr/textInputFilledStyle"
+            android:id="@+id/emailRegisterTextField"
+            android:layout_marginTop="30dp"
+            app:boxBackgroundColor="?attr/colorTertiaryContainer"
+            android:textColorHint="?attr/colorOnTertiaryContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:hintAnimationEnabled="false"
+            app:endIconMode="clear_text"
+            app:boxStrokeWidth="0dp"
+            android:hint="@string/activity_register_email_screen_text_input_layout_email_number_username_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailRegisterEditText"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="?attr/textInputFilledStyle"
+            android:id="@+id/passwordRegisterTextField"
+            android:layout_marginTop="10dp"
+            app:boxBackgroundColor="?attr/colorTertiaryContainer"
+            android:textColorHint="?attr/colorOnTertiaryContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintAnimationEnabled="false"
+            app:errorEnabled="true"
+            app:endIconMode="password_toggle"
+            app:boxStrokeWidth="0dp"
+            android:hint="@string/activity_register_email_screen_text_input_layout_password_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:fontFamily="@font/poppins_medium"
+                android:id="@+id/passwordRegisterEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="100dp"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/activity_register_email_button_create_account"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
