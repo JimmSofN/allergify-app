@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.allergifyapp.databinding.FragmentHomeScreenBinding
+import com.example.allergifyapp.ui.main.AllergyInformationScreen
 import com.example.allergifyapp.ui.main.SettingActivity
 
 class HomeScreen : Fragment() {
-
     private lateinit var binding: FragmentHomeScreenBinding
 
     override fun onCreateView(
@@ -25,6 +25,14 @@ class HomeScreen : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupButton()
+        setupCardView()
+    }
+
+    private fun setupCardView() {
+        binding.allergyInformationCardview.setOnClickListener {
+            val intent = Intent(requireActivity(), AllergyInformationScreen::class.java)
+            startActivity(intent, ActivityOptions.makeCustomAnimation(requireContext(), 0, 0).toBundle())
+        }
     }
 
     private fun setupButton() {

@@ -72,8 +72,7 @@ class LandingScreenFive : BaseActivity() {
         }
 
         binding.backButton.setOnClickListener {
-            val intent = Intent(this, LandingScreenFour::class.java)
-            startActivity(intent, ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
+            finish()
         }
     }
 

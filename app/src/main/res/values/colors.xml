@@ -293,4 +293,5 @@
     <color name="icPressed">#AAFFFFFF</color>
     <color name="black">#000000</color>
     <color name="black_transparent">#92000000</color>
+    <color name="ocr_code_reader_square">#FFFFFFFF</color>
 </resources>

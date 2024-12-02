@@ -63,7 +63,6 @@ class PreferencesManager @Inject constructor(
         return sharedPreferences.getString(KEY_USER_DISEASES, null)
     }
 
-
     companion object {
         private const val KEY_DARK_MODE = "isDarkMode"
         private const val KEY_USER_NAME = "userName"

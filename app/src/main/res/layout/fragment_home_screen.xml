@@ -79,6 +79,7 @@
             </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/allergyInformationCardview"
                 android:layout_marginTop="40dp"
                 app:cardBackgroundColor="?attr/colorSurfaceVariant"
                 app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge"

@@ -5,17 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.allergifyapp.R
-
+import com.example.allergifyapp.databinding.FragmentUserProfileScreenBinding
 
 class UserProfileScreen : Fragment() {
+    private lateinit var binding: FragmentUserProfileScreenBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_profile_screen, container, false)
+    ): View {
+        binding = FragmentUserProfileScreenBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
 }

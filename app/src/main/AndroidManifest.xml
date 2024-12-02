@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".ui.app.MyApplication"
         android:allowBackup="true"
@@ -13,6 +17,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AllergifyApp"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.main.AllergyInformationScreen"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.registerscreen.RegisterSuccessScreen"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.camera.CameraActivity"
             android:exported="false"
@@ -96,8 +108,5 @@
             android:exported="true"
             android:screenOrientation="portrait" />
     </application>
-
-    <uses-feature android:name="android.hardware.camera.any" />
-    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>

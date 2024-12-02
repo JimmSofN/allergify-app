@@ -8,7 +8,6 @@ import android.text.TextWatcher
 import com.example.allergifyapp.R
 import com.example.allergifyapp.databinding.ActivityRegisterEmailScreenBinding
 import com.example.allergifyapp.ui.main.BaseActivity
-import com.example.allergifyapp.ui.main.MainActivity
 
 class RegisterEmailScreen : BaseActivity() {
     private lateinit var binding: ActivityRegisterEmailScreenBinding
@@ -84,14 +83,13 @@ class RegisterEmailScreen : BaseActivity() {
             validatePassword(password)
 
             if (binding.emailRegisterTextField.error == null && binding.passwordRegisterTextField.error == null) {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, RegisterSuccessScreen::class.java)
                 startActivity(intent, ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
             }
         }
 
         binding.backButton.setOnClickListener {
-            val intent = Intent(this, RegisterScreen::class.java)
-            startActivity(intent, ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
+            finish()
         }
     }
 }

@@ -83,6 +83,11 @@
     <string name="activity_register_email_screen_text_input_layout_password_hint">Password</string>
     <string name="activity_register_email_button_create_account">Buat Akun</string>
 
+    // Activity Register Success Screen
+    <string name="activity_register_success_screen_textview_heading">Yey, Akun Anda berhasil di buat</string>
+    <string name="activity_register_success_screen_textview_content">Tekan untuk melanjutkan</string>
+    g>
+
     // Activity Login Screen
     <string name="activity_login_screen_textview_heading">Selamat Datang Kembali Sob</string>
     <string name="activity_login_screen_textview_content">Masuk ke akun Anda dan simpan semua perubahan</string>
@@ -127,8 +132,13 @@
     <string name="fragment_home_screen_profile_card_email">contohemaildoang@gmail.com</string>
     <string name="fragment_home_screen_allergy_information_card_title">Informasi Allergi</string>
 
-    // Fragment Profile Screen
-
+    // Fragment User Profile Screen
+    <string name="fragment_user_profile_screen_textview_heading_title">Profile</string>
+    <string name="fragment_user_profile_screen_user_name_textview">Jimmz889</string>
+    <string name="fragment_user_profile_screen_user_email_textview">jimmyputranature@gmail.com</string>
+    <string name="fragment_user_profile_screen_user_phone_textview">087891232232</string>
+    <string name="fragment_user_profile_screen_edit_profile_textview">Edit Profile</string>
+    <string name="fragment_user_profile_screen_user_delete_account_button_textview">Delete Account</string>
 
     // Fragment Analysis Screen
     <string name="fragment_analysis_screen_textview_heading_title">Analysis</string>
@@ -136,11 +146,22 @@
     <string name="fragment_analysis_screen_button_prev_calendar_button_content_description">sebelumnya</string>
     <string name="fragment_analysis_screen_button_next_calendar_button_content_description">selanjutnya</string>
 
+    // Fragment History Screen
+    <string name="fragment_history_screen_textview_heading_title">History</string>
+    <string name="fragment_history_screen_button_group_day_textview">Hari</string>
+    <string name="fragment_history_screen_button_group_month_textview">Bulan</string>
+    <string name="fragment_history_screen_button_group_year_textview">Tahun</string>
+    <string name="fragment_history_screen_search_bar_hint_textview">Cari history alergi</string>
+
+    // Activity Allergy Information Screen
+    <string name="activity_allergy_information_screen_textview_heading">Informasi Allergi</string>
+    <string name="activity_allergy_information_screen_bar_hint_textview">Cari Alergi</string>
+
+
     // Calendar Pop Up String
     <string name="today_text">Hari Ini</string>
     <string name="yesterday_text">Kemarin</string>
     <string name="select_date_title">Pilih Tanggal</string>
-
 
     // Pop Up From Reject Camera Request
     <string name="pop_up_reject_camera_textview_heading">Kami membutuhkan izin Anda</string>
@@ -174,7 +195,6 @@
     <string name="activity_setting_textview_terms_and_condition">Terms and condition</string>
     <string name="activity_setting_textview_privacy_policy">Privacy policy</string>
     <string name="activity_setting_textview_logout_button">Logout</string>
-
 
 
 </resources>
