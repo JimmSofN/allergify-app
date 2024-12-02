@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import com.example.allergifyapp.databinding.FragmentHomeScreenBinding
 import com.example.allergifyapp.ui.main.SettingActivity
 
-
 class HomeScreen : Fragment() {
 
     private lateinit var binding: FragmentHomeScreenBinding

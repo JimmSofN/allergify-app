@@ -1,11 +1,11 @@
 package com.example.allergifyapp.localdata
 
-import android.content.Context
 import android.content.SharedPreferences
+import javax.inject.Inject
 
-class PreferencesManager(context: Context) {
-    private val sharedPreferences: SharedPreferences =
-        context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+class PreferencesManager @Inject constructor(
+    private val sharedPreferences: SharedPreferences
+) {
 
     fun setDarkMode(isDarkMode: Boolean) {
         sharedPreferences.edit().putBoolean(KEY_DARK_MODE, isDarkMode).apply()
@@ -63,6 +63,7 @@ class PreferencesManager(context: Context) {
         return sharedPreferences.getString(KEY_USER_DISEASES, null)
     }
 
+
     companion object {
         private const val KEY_DARK_MODE = "isDarkMode"
         private const val KEY_USER_NAME = "userName"
@@ -72,4 +73,5 @@ class PreferencesManager(context: Context) {
         private const val KEY_USER_WEIGHT = "userWeight"
         private const val KEY_USER_DISEASES = "userDiseases"
     }
+
 }

@@ -11,6 +11,7 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.allergifyapp.R
 import com.example.allergifyapp.databinding.ActivityCameraBinding
 import com.example.allergifyapp.ui.main.BaseActivity
 
@@ -23,12 +24,17 @@ class CameraActivity : BaseActivity() {
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupCheckSelfPermission()
+        setupOcrToggleButton()
+
+    }
+
+    private fun setupCheckSelfPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), requestCodeCamera)
         } else {
             startCamera()
         }
-
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -69,6 +75,18 @@ class CameraActivity : BaseActivity() {
             }
 
         }, ContextCompat.getMainExecutor(this))
+    }
+
+    private fun setupOcrToggleButton() {
+        binding.ocrToggleButton.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                binding.floatingInformationTextView.text = getString(R.string.activity_camera_screen_capture_button_ocr_mode_information_textview)
+                binding.floatingInformationImageView.setImageResource(R.drawable.document_scanner_24px)
+            } else {
+                binding.floatingInformationTextView.text = getString(R.string.activity_camera_screen_capture_button_information_textview)
+                binding.floatingInformationImageView.setImageResource(R.drawable.photo_camera_24px)
+            }
+        }
     }
 
 }

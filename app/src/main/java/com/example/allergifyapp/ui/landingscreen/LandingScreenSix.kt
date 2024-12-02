@@ -9,10 +9,15 @@ import com.example.allergifyapp.R
 import com.example.allergifyapp.databinding.ActivityLandingScreenSixBinding
 import com.example.allergifyapp.localdata.PreferencesManager
 import com.example.allergifyapp.ui.main.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LandingScreenSix : BaseActivity() {
     private lateinit var binding: ActivityLandingScreenSixBinding
-    private lateinit var preferencesManager: PreferencesManager
+
+    @Inject
+    lateinit var preferencesManager: PreferencesManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +28,6 @@ class LandingScreenSix : BaseActivity() {
             override fun handleOnBackPressed() {
             }
         })
-
-        preferencesManager = PreferencesManager(this)
 
         setupDropdowns()
 

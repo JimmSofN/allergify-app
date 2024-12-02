@@ -12,16 +12,15 @@ import android.os.Bundle
 import android.provider.Settings
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.allergifyapp.R
 import com.example.allergifyapp.databinding.ActivityMainBinding
 import com.example.allergifyapp.databinding.PopUpRejectCameraPermissionBinding
 import com.example.allergifyapp.ui.camera.CameraActivity
-import com.example.allergifyapp.ui.fragment.AnalysisScreen
-import com.example.allergifyapp.ui.fragment.HistoryScreen
-import com.example.allergifyapp.ui.fragment.HomeScreen
-import com.example.allergifyapp.ui.fragment.UserProfileScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var popUpRejectCameraBinding: PopUpRejectCameraPermissionBinding
@@ -37,9 +36,6 @@ class MainActivity : BaseActivity() {
         setContentView(binding.root)
 
         setupBottomNavigation()
-        replaceFragment(HomeScreen())
-
-
         setupScanButton()
         setupRejectCameraPopUp()
 
@@ -122,34 +118,10 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    private fun setupBottomNavigation() {
-        val bottomNavigation = binding.bottomNavigation
-        bottomNavigation.setOnItemSelectedListener { menuItem ->
-            when(menuItem.itemId) {
-                R.id.homeFragment -> {
-                    replaceFragment(HomeScreen())
-                    true
-                }
-                R.id.analysisFragment -> {
-                    replaceFragment(AnalysisScreen())
-                    true
-                }
-                R.id.historyFragment -> {
-                    replaceFragment(HistoryScreen())
-                    true
-                }
-                R.id.userProfileFragment -> {
-                    replaceFragment(UserProfileScreen())
-                    true
-                }
-                else -> false
-            }
-        }
-    }
 
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.flFragment, fragment)
-            .commit()
+    private fun setupBottomNavigation() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navController = navHostFragment.navController
+        binding.bottomNavigation.setupWithNavController(navController)
     }
 }

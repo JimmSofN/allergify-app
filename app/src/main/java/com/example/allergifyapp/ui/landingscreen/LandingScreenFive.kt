@@ -8,10 +8,15 @@ import com.example.allergifyapp.R
 import com.example.allergifyapp.databinding.ActivityLandingScreenFiveBinding
 import com.example.allergifyapp.localdata.PreferencesManager
 import com.example.allergifyapp.ui.main.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LandingScreenFive : BaseActivity() {
     private lateinit var binding: ActivityLandingScreenFiveBinding
-    private lateinit var preferencesManager: PreferencesManager
+
+    @Inject
+    lateinit var preferencesManager: PreferencesManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +27,6 @@ class LandingScreenFive : BaseActivity() {
             override fun handleOnBackPressed() {
             }
         })
-
-        preferencesManager = PreferencesManager(this)
 
         loadSaveData()
 

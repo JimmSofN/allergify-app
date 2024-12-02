@@ -131,6 +131,15 @@
 
 
     // Fragment Analysis Screen
+    <string name="fragment_analysis_screen_textview_heading_title">Analysis</string>
+    <string name="fragment_analysis_screen_button_set_calendar_button_textview">Hari Ini</string>
+    <string name="fragment_analysis_screen_button_prev_calendar_button_content_description">sebelumnya</string>
+    <string name="fragment_analysis_screen_button_next_calendar_button_content_description">selanjutnya</string>
+
+    // Calendar Pop Up String
+    <string name="today_text">Hari Ini</string>
+    <string name="yesterday_text">Kemarin</string>
+    <string name="select_date_title">Pilih Tanggal</string>
 
 
     // Pop Up From Reject Camera Request
@@ -141,8 +150,13 @@
 
     // Camera Activity Screen
     <string name="activity_camera_screen_image_capture_content_description">Ambil Gambar</string>
-    <string name="activity_camera_screen_ocr_capture_content_description">Tombol OCr</string>
-    <string name="activity_camera_screen_ocr_capture_textview">OCR Mode</string>
+    <string name="activity_camera_screen_ocr_capture_content_description">Tombol OCR</string>
+    <string name="activity_camera_screen_information_layout_content_description">Tombol OCR</string>
+    <string name="activity_camera_screen_ocr_capture_textview">Mode OCR</string>
+    <string name="activity_camera_screen_ocr_capture_toggle_button_on">Aktif</string>
+    <string name="activity_camera_screen_ocr_capture_toggle_button_off">Mati</string>
+    <string name="activity_camera_screen_capture_button_information_textview">Ambil foto untuk menganalisis alergi</string>
+    <string name="activity_camera_screen_capture_button_ocr_mode_information_textview">Fitur OCR Aktif, scan label komposisi makanan untuk menganalisis alergi</string>
 
     // Setting Activity Screen
     <string name="activity_setting_textview_heading">Setting</string>

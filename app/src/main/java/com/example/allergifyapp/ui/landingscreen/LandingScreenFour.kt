@@ -9,11 +9,16 @@ import androidx.activity.OnBackPressedCallback
 import com.example.allergifyapp.databinding.ActivityLandingScreenFourBinding
 import com.example.allergifyapp.localdata.PreferencesManager
 import com.example.allergifyapp.ui.main.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LandingScreenFour : BaseActivity() {
     private lateinit var binding: ActivityLandingScreenFourBinding
-    private lateinit var preferencesManager: PreferencesManager
     private var isUserInteracted = false
+
+    @Inject
+    lateinit var preferencesManager: PreferencesManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +30,6 @@ class LandingScreenFour : BaseActivity() {
             }
         })
 
-        preferencesManager = PreferencesManager(this)
 
         loadSaveData()
 

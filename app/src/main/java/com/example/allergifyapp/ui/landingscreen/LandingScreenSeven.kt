@@ -9,10 +9,15 @@ import com.example.allergifyapp.databinding.ActivityLandingScreenSevenBinding
 import com.example.allergifyapp.localdata.PreferencesManager
 import com.example.allergifyapp.ui.main.BaseActivity
 import com.example.allergifyapp.ui.registerscreen.RegisterScreen
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LandingScreenSeven : BaseActivity() {
     private lateinit var binding: ActivityLandingScreenSevenBinding
-    private lateinit var preferencesManager: PreferencesManager
+
+    @Inject
+    lateinit var preferencesManager: PreferencesManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +29,6 @@ class LandingScreenSeven : BaseActivity() {
             }
         })
 
-        preferencesManager = PreferencesManager(this)
 
         loadSaveData()
 
