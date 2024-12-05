@@ -1,5 +1,7 @@
 package com.example.allergifyapp.ui.main
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
@@ -24,6 +26,11 @@ class SettingActivity : BaseActivity() {
     private fun setupButton() {
         binding.backButton.setOnClickListener {
             finish()
+        }
+
+        binding.updateProfileButton.setOnClickListener {
+            val intent = Intent(this, SettingUserAdjustment::class.java)
+            startActivity(intent, ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
         }
     }
 

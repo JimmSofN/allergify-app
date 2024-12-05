@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.NavHostFragment
@@ -18,6 +19,7 @@ import com.example.allergifyapp.R
 import com.example.allergifyapp.databinding.ActivityMainBinding
 import com.example.allergifyapp.databinding.PopUpRejectCameraPermissionBinding
 import com.example.allergifyapp.ui.camera.CameraActivity
+import com.example.allergifyapp.viewmodel.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,6 +27,7 @@ class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var popUpRejectCameraBinding: PopUpRejectCameraPermissionBinding
     private lateinit var popUpRejectCameraDialog: Dialog
+    private val authViewModel: AuthViewModel by viewModels()
     private val requestCodeCamera = 100
     private var permissionGranted = false
     private var permissionDenied = false
@@ -35,9 +38,18 @@ class MainActivity : BaseActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupCheckIfLoggedIn()
         setupBottomNavigation()
         setupScanButton()
         setupRejectCameraPopUp()
+
+    }
+
+    private fun setupCheckIfLoggedIn() {
+        if (!authViewModel.isLoggedIn()) {
+            startActivity(Intent(this, IntroScreenActivity::class.java))
+            finish()
+        }
 
     }
 

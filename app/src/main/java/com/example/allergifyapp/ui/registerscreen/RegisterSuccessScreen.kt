@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import com.example.allergifyapp.databinding.ActivityRegisterSuccessScreenBinding
+import com.example.allergifyapp.ui.loginscreen.LoginScreen
 import com.example.allergifyapp.ui.main.BaseActivity
-import com.example.allergifyapp.ui.main.MainActivity
 
 class RegisterSuccessScreen : BaseActivity() {
     private lateinit var binding: ActivityRegisterSuccessScreenBinding
@@ -15,7 +15,7 @@ class RegisterSuccessScreen : BaseActivity() {
         setContentView(binding.root)
 
         binding.root.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginScreen::class.java)
             startActivity(intent)
             finish()
         }

@@ -57,17 +57,33 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 
-    // Bottom Navigation View
+    // Navigation View
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
 
     // Lifecycle
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // Okhttp
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
 
     // Camera X
     implementation(libs.androidx.camera.core)
     implementation(libs.androidx.camera.camera2)
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.androidx.camera.view)
+
+    // Shimmer Effect Facebook
+    implementation(libs.shimmer)
 }

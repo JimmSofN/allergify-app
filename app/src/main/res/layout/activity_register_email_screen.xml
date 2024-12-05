@@ -7,9 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.registerscreen.RegisterEmailScreen">
 
-
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/registerProgressIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -52,50 +63,48 @@
             android:textSize="12sp" />
 
         <com.google.android.material.textfield.TextInputLayout
-            style="?attr/textInputFilledStyle"
             android:id="@+id/emailRegisterTextField"
-            android:layout_marginTop="30dp"
-            app:boxBackgroundColor="?attr/colorTertiaryContainer"
-            android:textColorHint="?attr/colorOnTertiaryContainer"
+            style="?attr/textInputFilledStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:hintAnimationEnabled="false"
-            app:endIconMode="clear_text"
+            android:layout_marginTop="30dp"
+            android:hint="@string/activity_register_email_screen_text_input_layout_email_number_username_hint"
+            android:textColorHint="?attr/colorOnTertiaryContainer"
+            app:boxBackgroundColor="?attr/colorTertiaryContainer"
             app:boxStrokeWidth="0dp"
-            android:hint="@string/activity_register_email_screen_text_input_layout_email_number_username_hint">
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:hintAnimationEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailRegisterEditText"
-                android:fontFamily="@font/poppins_medium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                />
+                android:fontFamily="@font/poppins_medium"
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="?attr/textInputFilledStyle"
             android:id="@+id/passwordRegisterTextField"
-            android:layout_marginTop="10dp"
-            app:boxBackgroundColor="?attr/colorTertiaryContainer"
-            android:textColorHint="?attr/colorOnTertiaryContainer"
+            style="?attr/textInputFilledStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintAnimationEnabled="false"
-            app:errorEnabled="true"
-            app:endIconMode="password_toggle"
+            android:layout_marginTop="10dp"
+            android:hint="@string/activity_register_email_screen_text_input_layout_password_hint"
+            android:textColorHint="?attr/colorOnTertiaryContainer"
+            app:boxBackgroundColor="?attr/colorTertiaryContainer"
             app:boxStrokeWidth="0dp"
-            android:hint="@string/activity_register_email_screen_text_input_layout_password_hint">
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            app:hintAnimationEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:fontFamily="@font/poppins_medium"
                 android:id="@+id/passwordRegisterEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                />
+                android:fontFamily="@font/poppins_medium"
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

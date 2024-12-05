@@ -1,22 +1,29 @@
 package com.example.allergifyapp.ui.registerscreen
 
-import android.app.ActivityOptions
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import com.example.allergifyapp.R
 import com.example.allergifyapp.databinding.ActivityRegisterEmailScreenBinding
 import com.example.allergifyapp.ui.main.BaseActivity
+import com.example.allergifyapp.utils.DataStatus
+import com.example.allergifyapp.viewmodel.AuthViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterEmailScreen : BaseActivity() {
     private lateinit var binding: ActivityRegisterEmailScreenBinding
+    private val authViewModel: AuthViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterEmailScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        observeRegisterResult()
         setupButton()
         setupTextWatchers()
     }
@@ -83,8 +90,7 @@ class RegisterEmailScreen : BaseActivity() {
             validatePassword(password)
 
             if (binding.emailRegisterTextField.error == null && binding.passwordRegisterTextField.error == null) {
-                val intent = Intent(this, RegisterSuccessScreen::class.java)
-                startActivity(intent, ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
+                authViewModel.register(email, password)
             }
         }
 
@@ -92,4 +98,27 @@ class RegisterEmailScreen : BaseActivity() {
             finish()
         }
     }
+
+    private fun observeRegisterResult() {
+        authViewModel.registrationStatus.observe(this) {
+            when (it.status) {
+                DataStatus.Status.LOADING -> {
+                    binding.registerProgressIndicator.isVisible = true
+                }
+                DataStatus.Status.SUCCESS -> {
+                    binding.registerProgressIndicator.isVisible = false
+                    showToast("Registration successful!")
+                }
+                DataStatus.Status.ERROR -> {
+                    binding.registerProgressIndicator.isVisible = false
+                    showToast("Registration failed: ${it.message}")
+                }
+            }
+        }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
 }

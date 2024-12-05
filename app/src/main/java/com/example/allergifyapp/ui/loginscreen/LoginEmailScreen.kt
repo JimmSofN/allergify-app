@@ -5,19 +5,29 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import com.example.allergifyapp.R
 import com.example.allergifyapp.databinding.ActivityLoginEmailScreenBinding
 import com.example.allergifyapp.ui.forgotpasswordscreen.ForgotPasswordEmailScreen
 import com.example.allergifyapp.ui.main.BaseActivity
 import com.example.allergifyapp.ui.main.MainActivity
+import com.example.allergifyapp.utils.DataStatus
+import com.example.allergifyapp.viewmodel.AuthViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginEmailScreen : BaseActivity() {
     private lateinit var binding: ActivityLoginEmailScreenBinding
+    private val authViewModel: AuthViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginEmailScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        observeLoginResult()
         setupButton()
         setupTextWatchers()
     }
@@ -84,15 +94,37 @@ class LoginEmailScreen : BaseActivity() {
             val email = binding.emailLoginEditText.text.toString()
             val password = binding.passwordLoginEditText.text.toString()
 
-
-            if (binding.emailLoginTextField.error == null && binding.passwordLoginTextField.error == null) {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent, ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
-            }
-
             validateEmail(email)
             validatePassword(password)
 
+            if (binding.emailLoginTextField.error == null && binding.passwordLoginTextField.error == null) {
+                authViewModel.login(email, password)
+            }
+
         }
+    }
+
+    private fun observeLoginResult() {
+        authViewModel.loginStatus.observe(this) {
+            when (it.status) {
+                DataStatus.Status.LOADING -> {
+                    binding.loginProgressIndicator.isVisible = true
+                }
+                DataStatus.Status.SUCCESS -> {
+                    binding.loginProgressIndicator.isVisible = false
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent, ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
+                    finish()
+                }
+                DataStatus.Status.ERROR -> {
+                    binding.loginProgressIndicator.isVisible = false
+                    showToast("Login Gagal: ${it.message}")
+                }
+            }
+        }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

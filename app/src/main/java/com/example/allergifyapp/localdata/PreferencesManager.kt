@@ -63,6 +63,31 @@ class PreferencesManager @Inject constructor(
         return sharedPreferences.getString(KEY_USER_DISEASES, null)
     }
 
+    // Auth
+    fun saveLogin(token: String) {
+        sharedPreferences.edit().apply {
+            putString(KEY_TOKEN, token)
+            putBoolean(KEY_IS_LOGGED_IN, true)
+            apply()
+        }
+    }
+
+    fun isLoggedIn(): Boolean {
+        return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false)
+    }
+
+    fun getToken(): String? {
+        return sharedPreferences.getString(KEY_TOKEN, null)
+    }
+
+    fun logout() {
+        sharedPreferences.edit().apply {
+            remove(KEY_TOKEN)
+            putBoolean(KEY_IS_LOGGED_IN, false)
+            apply()
+        }
+    }
+
     companion object {
         private const val KEY_DARK_MODE = "isDarkMode"
         private const val KEY_USER_NAME = "userName"
@@ -71,6 +96,8 @@ class PreferencesManager @Inject constructor(
         private const val KEY_USER_HEIGHT = "userHeight"
         private const val KEY_USER_WEIGHT = "userWeight"
         private const val KEY_USER_DISEASES = "userDiseases"
+        private const val KEY_TOKEN = "key_token"
+        private const val KEY_IS_LOGGED_IN = "key_is_logged_in"
     }
 
 }

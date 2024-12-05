@@ -155,8 +155,6 @@
 
     // Activity Allergy Information Screen
     <string name="activity_allergy_information_screen_textview_heading">Informasi Allergi</string>
-    <string name="activity_allergy_information_screen_bar_hint_textview">Cari Alergi</string>
-
 
     // Calendar Pop Up String
     <string name="today_text">Hari Ini</string>
@@ -179,6 +177,9 @@
     <string name="activity_camera_screen_capture_button_information_textview">Ambil foto untuk menganalisis alergi</string>
     <string name="activity_camera_screen_capture_button_ocr_mode_information_textview">Fitur OCR Aktif, scan label komposisi makanan untuk menganalisis alergi</string>
 
+    // Allergy detail activity screen
+    <string name="activity_allergy_detail_screen_textview_heading">Contoh Product Makanan</string>
+
     // Setting Activity Screen
     <string name="activity_setting_textview_heading">Setting</string>
     <string name="activity_setting_textview_age">Usia</string>
@@ -196,5 +197,16 @@
     <string name="activity_setting_textview_privacy_policy">Privacy policy</string>
     <string name="activity_setting_textview_logout_button">Logout</string>
 
+    // Setting User Adjustment Screen
+    <string name="activity_setting_user_adjustment_screen_textview_heading">Perbaharui data Anda</string>
+    <string name="activity_setting_user_adjustment_screen_textview_content">Silahkan perbaharui data Anda</string>
+    <string name="activity_setting_user_adjustment_screen_text_input_layout_textview_age">Berapa usia Anda?</string>
+    <string name="activity_setting_user_adjustment_screen_text_input_layout_textview_age_metric">Tahun</string>
+    <string name="activity_setting_user_adjustment_screen_text_input_layout_textview_height">Berapa tinggi Anda?</string>
+    <string name="activity_setting_user_adjustment_screen_text_input_layout_textview_height_metric">cm</string>
+    <string name="activity_setting_user_adjustment_screen_text_input_layout_textview_weight">Berapa Berat Anda?</string>
+    <string name="activity_setting_user_adjustment_screen_text_input_layout_textview_weight_hint">60</string>
+    <string name="activity_setting_user_adjustment_screen_text_input_layout_textview_weight_metric">Kg</string>
+    <string name="activity_setting_user_adjustment_screen__update_button_textview">Perbaharui</string>
 
 </resources>

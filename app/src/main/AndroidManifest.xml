@@ -4,6 +4,8 @@
 
     <uses-feature android:name="android.hardware.camera.any" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -17,6 +19,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AllergifyApp"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.main.AllergyDetailScreen"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.SettingUserAdjustment"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.AllergyInformationScreen"
             android:exported="false"
@@ -96,17 +106,17 @@
         <activity
             android:name=".ui.main.IntroScreenActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
