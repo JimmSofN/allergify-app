@@ -15,17 +15,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/backButton"
-            style="?attr/materialIconButtonFilledStyle"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginTop="80dp"
             android:layout_marginStart="24dp"
-            android:contentDescription="@string/filled_icon_btn_desc"
-            app:backgroundTint="?attr/colorSecondaryContainer"
-            app:icon="@drawable/arrow_back_24px"
-            app:iconTint="?attr/colorOnSecondaryContainer" />
+            android:layout_marginEnd="24dp">
+
+            <Button
+                android:id="@+id/backButton"
+                style="?attr/materialIconButtonFilledStyle"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/filled_icon_btn_desc"
+                app:backgroundTint="?attr/colorSecondaryContainer"
+                app:icon="@drawable/arrow_back_24px"
+                app:iconTint="?attr/colorOnSecondaryContainer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/addButton"
+                style="?attr/materialIconButtonFilledStyle"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:contentDescription="@string/filled_icon_btn_desc"
+                app:backgroundTint="?attr/colorPrimaryContainer"
+                app:icon="@drawable/add_circle_24px"
+                app:iconTint="?attr/colorOnPrimaryContainer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/textView"
@@ -38,6 +62,11 @@
             android:text="@string/activity_allergy_information_screen_textview_heading"
             android:textColor="?attr/colorOnSurface"
             android:textSize="32sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/userAllergenRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 
     </LinearLayout>

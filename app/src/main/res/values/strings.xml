@@ -125,6 +125,9 @@
     <string name="activity_change_password_success_textview_heading">Asik, password kamu berhasil di ubah, yuk langsung aja mulai</string>
     <string name="activity_change_password_success_button_login_now">Login Sekarang</string>
 
+    // Activity Loading Indicator Screen
+    <string name="activity_login_indicator_textview_loading">Mohon Menunggu...</string>
+
     // Fragment Home Screen
     <string name="fragment_home_screen_textview_heading_title">Allergify</string>
     <string name="fragment_home_screen_textview_information_text">harap perhatikan tingkat toleransi alergi Anda</string>
@@ -155,6 +158,29 @@
 
     // Activity Allergy Information Screen
     <string name="activity_allergy_information_screen_textview_heading">Informasi Allergi</string>
+
+    // User Allergy Information Card View
+    <string name="user_information_allergy_cardview_title">Ikan</string>
+    <string name="user_information_allergy_content_description_edit">tombol edit</string>
+    <string name="user_information_allergy_content_description_delete">tombol hapus</string>
+
+    // User Allergy Information Card View Edit
+    <string name="user_information_allergy_cardview_edit_title">Isi kembali untuk mengubah Allergi</string>
+    <string name="user_information_allergy_cardview_edit_close_button_content_description">Tombol Tutup</string>
+    <string name="user_information_allergy_cardview_edit_text_field_hint">Edit Nama Allergi</string>
+    <string name="user_information_allergy_cardview_edit_save_button_text">Simpan</string>
+
+    // User Allergy Information Card View Add
+    <string name="user_information_allergy_cardview_add_title">Isi allergi yang ingin Anda hindari</string>
+    <string name="user_information_allergy_cardview_add_close_button_content_description">Tombol Tutup</string>
+    <string name="user_information_allergy_cardview_add_text_field_hint">Nama Allergi</string>
+    <string name="user_information_allergy_cardview_add_save_button_text">Tambahkan Allergi</string>
+
+    // User Allergy Information Card View Delete
+    <string name="user_information_allergy_cardview_delete_title">Yakin ingin menghapus Allergi ini?</string>
+    <string name="user_information_allergy_cardview_delete_text">Semua perubahan yang di simpan akan terhapus secara permanen, mikir 2 kali lagi ngab</string>
+    <string name="user_information_allergy_cardview_delete_cancel_button_text">Batalkan</string>
+    <string name="user_information_allergy_cardview_delete_delete_button_text">Hapus</string>
 
     // Calendar Pop Up String
     <string name="today_text">Hari Ini</string>
@@ -208,5 +234,11 @@
     <string name="activity_setting_user_adjustment_screen_text_input_layout_textview_weight_hint">60</string>
     <string name="activity_setting_user_adjustment_screen_text_input_layout_textview_weight_metric">Kg</string>
     <string name="activity_setting_user_adjustment_screen__update_button_textview">Perbaharui</string>
+
+
+    // APis String
+    <string name="user_profile_loading_message">Mohon Menunggu..</string>
+    <string name="user_profile_error_message">Maaf, sepertinya terjadi error</string>
+    <string name="user_profile_email_not_found_message">Email tidak tersedia</string>
 
 </resources>

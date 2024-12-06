@@ -1,6 +1,5 @@
 package com.example.allergifyapp.ui.loginscreen
 
-import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -10,7 +9,6 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.example.allergifyapp.R
 import com.example.allergifyapp.databinding.ActivityLoginEmailScreenBinding
-import com.example.allergifyapp.ui.forgotpasswordscreen.ForgotPasswordEmailScreen
 import com.example.allergifyapp.ui.main.BaseActivity
 import com.example.allergifyapp.ui.main.MainActivity
 import com.example.allergifyapp.utils.DataStatus
@@ -80,16 +78,6 @@ class LoginEmailScreen : BaseActivity() {
     }
 
     private fun setupButton() {
-        binding.forgotPasswordButton.setOnClickListener {
-            val intent = Intent(this, ForgotPasswordEmailScreen::class.java)
-            startActivity(intent, ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
-        }
-
-        binding.backButton.setOnClickListener {
-            val intent = Intent(this, LoginScreen::class.java)
-            startActivity(intent, ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
-        }
-
         binding.loginButton.setOnClickListener {
             val email = binding.emailLoginEditText.text.toString()
             val password = binding.passwordLoginEditText.text.toString()
@@ -100,7 +88,10 @@ class LoginEmailScreen : BaseActivity() {
             if (binding.emailLoginTextField.error == null && binding.passwordLoginTextField.error == null) {
                 authViewModel.login(email, password)
             }
+        }
 
+        binding.backButton.setOnClickListener {
+            finish()
         }
     }
 
@@ -113,9 +104,11 @@ class LoginEmailScreen : BaseActivity() {
                 DataStatus.Status.SUCCESS -> {
                     binding.loginProgressIndicator.isVisible = false
                     val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent, ActivityOptions.makeCustomAnimation(this, 0, 0).toBundle())
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
                     finish()
                 }
+
                 DataStatus.Status.ERROR -> {
                     binding.loginProgressIndicator.isVisible = false
                     showToast("Login Gagal: ${it.message}")
@@ -127,4 +120,5 @@ class LoginEmailScreen : BaseActivity() {
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+
 }

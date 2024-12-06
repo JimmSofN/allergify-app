@@ -80,12 +80,16 @@ class PreferencesManager @Inject constructor(
         return sharedPreferences.getString(KEY_TOKEN, null)
     }
 
+//    fun logout() {
+//        sharedPreferences.edit().apply {
+//            remove(KEY_TOKEN)
+//            putBoolean(KEY_IS_LOGGED_IN, false)
+//            apply()
+//        }
+//    }
+
     fun logout() {
-        sharedPreferences.edit().apply {
-            remove(KEY_TOKEN)
-            putBoolean(KEY_IS_LOGGED_IN, false)
-            apply()
-        }
+        sharedPreferences.edit().clear().apply()
     }
 
     companion object {

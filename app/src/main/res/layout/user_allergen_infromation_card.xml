@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="?attr/colorTertiaryContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:strokeWidth="0dp"
+    android:id="@+id/userAllergenInformationCard"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="24dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageVectorAllergenInformationCard"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="-10dp"
+            android:layout_marginEnd="-10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/walnutvectoruserallergyimage" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="80dp"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/userAllergenName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/user_information_allergy_cardview_title"
+                android:textColor="?attr/colorOnTertiaryContainer"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/editUserAllergyButton"
+                style="?attr/materialIconButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:contentDescription="@string/user_information_allergy_content_description_edit"
+                app:icon="@drawable/edit_24px"
+                app:iconTint="?attr/colorOnTertiaryContainer" />
+
+            <Button
+                android:id="@+id/deleteUserAllergyButton"
+                style="?attr/materialIconButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:contentDescription="@string/user_information_allergy_content_description_delete"
+                app:icon="@drawable/delete_24px"
+                app:iconTint="?attr/colorOnTertiaryContainer" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

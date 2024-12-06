@@ -1,5 +1,6 @@
 package com.example.allergifyapp.ui.registerscreen
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.example.allergifyapp.R
 import com.example.allergifyapp.databinding.ActivityRegisterEmailScreenBinding
+import com.example.allergifyapp.ui.loginscreen.LoginScreen
 import com.example.allergifyapp.ui.main.BaseActivity
 import com.example.allergifyapp.utils.DataStatus
 import com.example.allergifyapp.viewmodel.AuthViewModel
@@ -107,7 +109,11 @@ class RegisterEmailScreen : BaseActivity() {
                 }
                 DataStatus.Status.SUCCESS -> {
                     binding.registerProgressIndicator.isVisible = false
-                    showToast("Registration successful!")
+                    val intent = Intent(this, LoginScreen::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
+                    showToast("Registrasi Berhasil")
                 }
                 DataStatus.Status.ERROR -> {
                     binding.registerProgressIndicator.isVisible = false
