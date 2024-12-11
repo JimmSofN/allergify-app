@@ -63,6 +63,7 @@ dependencies {
 
     // Room Database
     implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
 
     // Lifecycle
@@ -90,4 +91,7 @@ dependencies {
 
     // Shimmer Effect Facebook
     implementation(libs.shimmer)
+
+    // zxing
+    implementation(libs.zxing.android.embedded)
 }

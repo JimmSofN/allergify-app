@@ -1,5 +1,8 @@
 package com.example.allergifyapp.ui.fragment
 
+import android.app.AlertDialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,15 +10,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.allergifyapp.R
+import com.example.allergifyapp.data.local.model.UserName
 import com.example.allergifyapp.databinding.FragmentUserProfileScreenBinding
-import com.example.allergifyapp.utils.DataStatus
-import com.example.allergifyapp.viewmodel.AuthViewModel
+import com.example.allergifyapp.databinding.UserProfileEditDialogBinding
+import com.example.allergifyapp.viewmodel.UserInfoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class UserProfileScreen : Fragment() {
     private lateinit var binding: FragmentUserProfileScreenBinding
-    private val viewModel: AuthViewModel by viewModels()
+    private val userInfoViewModel: UserInfoViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,32 +27,64 @@ class UserProfileScreen : Fragment() {
     ): View {
         binding = FragmentUserProfileScreenBinding.inflate(inflater, container, false)
 
-
-
-        setupObserveProfileStatus()
-
+        setupButton()
+        observeUser()
         return binding.root
     }
 
-    private fun setupObserveProfileStatus() {
-
-        viewModel.profile()
-
-        viewModel.profileStatus.observe(viewLifecycleOwner) {
-            when (it.status) {
-                DataStatus.Status.LOADING -> {
-                    binding.userEmailProfile.text = getString(R.string.user_profile_loading_message)
-                }
-                DataStatus.Status.SUCCESS -> {
-                    val profile = it.data
-                    binding.userEmailProfile.text = profile?.user?.email ?: getString(R.string.user_profile_email_not_found_message)
-                }
-                DataStatus.Status.ERROR -> {
-                    val errorMessage = it.message
-                    binding.userEmailProfile.text = errorMessage ?: getString(R.string.user_profile_error_message)
-                }
-            }
+    private fun setupButton() {
+        binding.editButton.setOnClickListener {
+            showEditDialog()
         }
     }
 
+    private fun showEditDialog() {
+        val addDialogBinding = UserProfileEditDialogBinding.inflate(LayoutInflater.from(context))
+
+        val dialogBuilder = AlertDialog.Builder(context)
+            .setView(addDialogBinding.root)
+            .setCancelable(false)
+
+        val dialog = dialogBuilder.create()
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        addDialogBinding.closeButton.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        addDialogBinding.userProfileEditSaveButton.setOnClickListener {
+            val newUserName = addDialogBinding.editUserNameEditText.text.toString()
+            if (newUserName.isNotEmpty()) {
+                val userName = UserName(userName = newUserName)
+
+                userInfoViewModel.insertUserName(userName)
+
+                dialog.dismiss()
+            } else {
+                //TODO
+            }
+        }
+
+        dialog.show()
+    }
+
+    private fun observeUser() {
+        userInfoViewModel.userName.observe(viewLifecycleOwner) {
+            if (it.isNotEmpty()) {
+                val userInfo = it[0]
+                binding.userNameProfile.text = userInfo.userName
+            } else {
+                binding.userNameProfile.text = getString(R.string.fragment_user_profile_screen_user_name_textview)
+            }
+        }
+
+        userInfoViewModel.userEmail.observe(viewLifecycleOwner) {
+            if (it.isNotEmpty()) {
+                val userEmail = it[0]
+                binding.userEmailProfile.text = userEmail.userEmail
+            } else {
+                binding.userEmailProfile.text = getString(R.string.fragment_user_profile_screen_user_email_textview)
+            }
+        }
+    }
 }

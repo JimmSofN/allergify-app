@@ -137,11 +137,12 @@
 
     // Fragment User Profile Screen
     <string name="fragment_user_profile_screen_textview_heading_title">Profile</string>
-    <string name="fragment_user_profile_screen_user_name_textview">Jimmz889</string>
-    <string name="fragment_user_profile_screen_user_email_textview">jimmyputranature@gmail.com</string>
-    <string name="fragment_user_profile_screen_user_phone_textview">087891232232</string>
+    <string name="fragment_user_profile_screen_user_name_textview">Username</string>
+    <string name="fragment_user_profile_screen_user_email_textview">Email</string>
+    <string name="fragment_user_profile_screen_user_phone_textview">No Telp </string>
     <string name="fragment_user_profile_screen_edit_profile_textview">Edit Profile</string>
     <string name="fragment_user_profile_screen_user_delete_account_button_textview">Delete Account</string>
+    <string name="fragment_user_profile_screen_username_default">Username</string>
 
     // Fragment Analysis Screen
     <string name="fragment_analysis_screen_textview_heading_title">Analysis</string>
@@ -209,12 +210,12 @@
     // Setting Activity Screen
     <string name="activity_setting_textview_heading">Setting</string>
     <string name="activity_setting_textview_age">Usia</string>
-    <string name="activity_setting_textview_age_data">20</string>
+    <string name="activity_setting_textview_age_default">0</string>
     <string name="activity_setting_textview_height">Tinggi</string>
-    <string name="activity_setting_textview_height_data">160</string>
+    <string name="activity_setting_textview_height_default">0</string>
     <string name="activity_setting_textview_height_metric">cm</string>
     <string name="activity_setting_textview_weight">Berat</string>
-    <string name="activity_setting_textview_weight_data">60</string>
+    <string name="activity_setting_textview_weight_default">0</string>
     <string name="activity_setting_textview_weight_metric">kg</string>
     <string name="activity_setting_textview_update">Perbaharui</string>
     <string name="activity_setting_textview_dark_mode">Mode gelap</string>
@@ -235,10 +236,8 @@
     <string name="activity_setting_user_adjustment_screen_text_input_layout_textview_weight_metric">Kg</string>
     <string name="activity_setting_user_adjustment_screen__update_button_textview">Perbaharui</string>
 
-
-    // APis String
-    <string name="user_profile_loading_message">Mohon Menunggu..</string>
-    <string name="user_profile_error_message">Maaf, sepertinya terjadi error</string>
-    <string name="user_profile_email_not_found_message">Email tidak tersedia</string>
+    // User Edit Profile Setting Dialog
+    <string name="user_edit_profile_cardview_edit_heading">Silahkan ganti username anda </string>
+    <string name="user_edit_profile_cardview_edit_username_text_field_hint">Username</string>
 
 </resources>

@@ -28,21 +28,12 @@ class UserAllergenRepository @Inject constructor(
                         emit(DataStatus.success(it.data))
                     } ?: emit(DataStatus.error("No data found"))
                 }
-                400 -> {
-                    emit(DataStatus.error("Bad Request: ${response.message()}"))
-                }
-                401 -> {
-                    emit(DataStatus.error("Unauthorized: ${response.message()}"))
-                }
-                404 -> {
-                    emit(DataStatus.error("Not Found: ${response.message()}"))
-                }
                 else -> {
-                    emit(DataStatus.error("Unexpected error: ${response.message()}"))
+                    emit(DataStatus.error("An error occurred"))
                 }
             }
         } catch (e: Exception) {
-            emit(DataStatus.error("Exception: ${e.message}"))
+            emit(DataStatus.error("Ups.. something went wrong"))
         }
     }.flowOn(Dispatchers.IO)
 
@@ -59,20 +50,14 @@ class UserAllergenRepository @Inject constructor(
                     } ?: emit(DataStatus.error("No data found"))
                 }
                 400 -> {
-                    emit(DataStatus.error("Bad Request: ${response.message()}"))
-                }
-                401 -> {
-                    emit(DataStatus.error("Unauthorized: ${response.message()}"))
-                }
-                404 -> {
-                    emit(DataStatus.error("Not Found: ${response.message()}"))
+                    emit(DataStatus.error("Allergen name already exists"))
                 }
                 else -> {
-                    emit(DataStatus.error("Unexpected error: ${response.message()}"))
+                    emit(DataStatus.error("An error occurred"))
                 }
             }
         } catch (e: Exception) {
-            emit(DataStatus.error("Exception: ${e.message}"))
+            emit(DataStatus.error("Ups.. something went wrong"))
         }
     }.flowOn(Dispatchers.IO)
 
@@ -87,20 +72,11 @@ class UserAllergenRepository @Inject constructor(
                     } ?: emit(DataStatus.error("No data found"))
                 }
                 400 -> {
-                    emit(DataStatus.error("Bad Request: ${response.message()}"))
-                }
-                401 -> {
-                    emit(DataStatus.error("Unauthorized: ${response.message()}"))
-                }
-                404 -> {
-                    emit(DataStatus.error("Not Found: ${response.message()}"))
-                }
-                else -> {
-                    emit(DataStatus.error("Unexpected error: ${response.message()}"))
+                    emit(DataStatus.error("Allergen already added"))
                 }
             }
         } catch (e: Exception) {
-            emit(DataStatus.error("Exception: ${e.message}"))
+            emit(DataStatus.error("Ups.. something went wrong"))
         }
     }.flowOn(Dispatchers.IO)
 
@@ -115,21 +91,12 @@ class UserAllergenRepository @Inject constructor(
                         emit(DataStatus.success(it))
                     } ?: emit(DataStatus.error("No data found"))
                 }
-                400 -> {
-                    emit(DataStatus.error("Bad Request: ${response.message()}"))
-                }
-                401 -> {
-                    emit(DataStatus.error("Unauthorized: ${response.message()}"))
-                }
-                404 -> {
-                    emit(DataStatus.error("Not Found: ${response.message()}"))
-                }
                 else -> {
-                    emit(DataStatus.error("Unexpected error: ${response.message()}"))
+                    emit(DataStatus.error("An error occurred"))
                 }
             }
         } catch (e: Exception) {
-            emit(DataStatus.error("Exception: ${e.message}"))
+            emit(DataStatus.error("Ups.. something went wrong"))
         }
     }.flowOn(Dispatchers.IO)
 

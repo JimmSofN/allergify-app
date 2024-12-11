@@ -8,17 +8,27 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.example.allergifyapp.R
+import com.example.allergifyapp.data.local.model.UserEmail
+import com.example.allergifyapp.data.local.model.UserInfo
+import com.example.allergifyapp.data.local.model.UserName
 import com.example.allergifyapp.databinding.ActivityRegisterEmailScreenBinding
-import com.example.allergifyapp.ui.loginscreen.LoginScreen
+import com.example.allergifyapp.localdata.PreferencesManager
 import com.example.allergifyapp.ui.main.BaseActivity
 import com.example.allergifyapp.utils.DataStatus
 import com.example.allergifyapp.viewmodel.AuthViewModel
+import com.example.allergifyapp.viewmodel.UserInfoViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class RegisterEmailScreen : BaseActivity() {
     private lateinit var binding: ActivityRegisterEmailScreenBinding
     private val authViewModel: AuthViewModel by viewModels()
+    private val userInfoViewModel: UserInfoViewModel by viewModels()
+
+    @Inject
+    lateinit var preferencesManager: PreferencesManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,15 +119,35 @@ class RegisterEmailScreen : BaseActivity() {
                 }
                 DataStatus.Status.SUCCESS -> {
                     binding.registerProgressIndicator.isVisible = false
-                    val intent = Intent(this, LoginScreen::class.java)
+
+                    val userName = preferencesManager.getUserName()
+                    val userAge = preferencesManager.getUserAge()
+                    val userHeight = preferencesManager.getUserHeight()
+                    val userWeight = preferencesManager.getUserWeight()
+
+                    val userEmail = binding.emailRegisterEditText.text.toString()
+
+                    userAge?.let {
+                        val userInfo = UserInfo(age = userAge?: "", height = userHeight?: "", weight = userWeight?: "")
+                        userInfoViewModel.insertUserInfo(userInfo)
+                    }
+
+                    userName?.let {
+                        val userName = UserName(userName = userName)
+                        userInfoViewModel.insertUserName(userName)
+                    }
+
+                    val userEmailEntity = UserEmail(userEmail = userEmail)
+                    userInfoViewModel.insertUserEmail(userEmailEntity)
+
+                    val intent = Intent(this, RegisterSuccessScreen::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                     finish()
-                    showToast("Registrasi Berhasil")
                 }
                 DataStatus.Status.ERROR -> {
                     binding.registerProgressIndicator.isVisible = false
-                    showToast("Registration failed: ${it.message}")
+                    showToast(it.message ?: "An unknown error occurred")
                 }
             }
         }

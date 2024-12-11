@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.allergifyapp.adapter.UserAllergenAdapter
@@ -66,7 +67,7 @@ class AllergyInformationScreen : BaseActivity() {
                     }
                 }
                 DataStatus.Status.ERROR -> {
-
+                    showToast(it.message?: "An unknown error occurred" )
                 }
             }
         }
@@ -81,7 +82,6 @@ class AllergyInformationScreen : BaseActivity() {
                     userAllergenViewModel.getUserAllergens()
                 }
                 DataStatus.Status.ERROR -> {
-
                 }
             }
         }
@@ -91,13 +91,12 @@ class AllergyInformationScreen : BaseActivity() {
         userAllergenViewModel.addUserAllergens.observe(this) {
             when (it.status) {
                 DataStatus.Status.LOADING -> {
-
                 }
                 DataStatus.Status.SUCCESS -> {
                     userAllergenViewModel.getUserAllergens()
                 }
                 DataStatus.Status.ERROR -> {
-
+                    showToast(it.message?: "An unknown error occurred" )
                 }
             }
         }
@@ -107,16 +106,19 @@ class AllergyInformationScreen : BaseActivity() {
         userAllergenViewModel.deleteUserAllergens.observe(this) {
             when (it.status) {
                 DataStatus.Status.LOADING -> {
-
                 }
                 DataStatus.Status.SUCCESS -> {
                     userAllergenViewModel.getUserAllergens()
                 }
                 DataStatus.Status.ERROR -> {
-
+                    showToast(it.message?: "An unknown error occurred" )
                 }
             }
         }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun showAddDialog() {

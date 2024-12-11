@@ -24,14 +24,11 @@ class AuthRepository @Inject constructor(
                 emit(DataStatus.success(result.body()))
             }
             400 -> {
-                emit(DataStatus.error(result.message()))
-            }
-            else -> {
-                emit(DataStatus.error("Unexpected error: ${result.message()}"))
+                emit(DataStatus.error("Email is already registered"))
             }
         }
     }.catch {
-            emit(DataStatus.error(it.message ?: "An unknown error occurred"))
+        emit(DataStatus.error("Ups.. something went wrong"))
     }.flowOn(Dispatchers.IO)
 
     suspend fun login(email: String, password: String) = flow {
@@ -47,59 +44,18 @@ class AuthRepository @Inject constructor(
                 emit(DataStatus.success(result.body()))
             }
             400 -> {
-                emit(DataStatus.error(result.message()))
+                emit(DataStatus.error("Email and password required"))
             }
             401 -> {
-                emit(DataStatus.error(result.message()))
+                emit(DataStatus.error("User not found"))
             }
             else -> {
-                emit(DataStatus.error("Unexpected error: ${result.message()}"))
+                emit(DataStatus.error("An error occurred, please try again later"))
             }
         }
     }.catch {
-        emit(DataStatus.error(it.message ?: "An unknown error occurred"))
+        emit(DataStatus.error("Ups.. something went wrong"))
     }.flowOn(Dispatchers.IO)
-
-    suspend fun profile() = flow {
-        emit(DataStatus.loading())
-
-        val result = apiService.profile()
-        when(result.code()) {
-            200 -> {
-                emit(DataStatus.success(result.body()))
-            }
-            400 -> {
-                emit(DataStatus.error(result.message()))
-            }
-            401 -> {
-                emit(DataStatus.error(result.message()))
-            }
-            else -> {
-                emit(DataStatus.error("Unexpected error: ${result.message()}"))
-            }
-        }
-    } .catch {
-        emit(DataStatus.error(it.message ?: "An unknown error occurred"))
-    }.flowOn(Dispatchers.IO)
-
-//    suspend fun logout() = flow {
-//        emit(DataStatus.loading())
-//        val result = apiService.logout()
-//        when (result.code()) {
-//            200 -> {
-//                preferencesManager.logout()
-//                emit(DataStatus.success(result.body()))
-//            }
-//            401 -> {
-//                emit(DataStatus.error(result.message()))
-//            }
-//            else -> {
-//                emit(DataStatus.error("Logout failed: ${result.message()}"))
-//            }
-//        }
-//    }.catch {
-//        emit(DataStatus.error(it.message ?: "An unknown error occurred"))
-//    }.flowOn(Dispatchers.IO)
 
     fun isLoggedIn(): Boolean {
         return preferencesManager.isLoggedIn()

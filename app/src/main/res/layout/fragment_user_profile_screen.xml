@@ -43,8 +43,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/poppins_semibold"
-            android:text="@string/fragment_user_profile_screen_user_name_textview"
             android:textColor="?attr/colorOnSurface"
+            android:text="@string/fragment_user_profile_screen_user_name_textview"
             android:textSize="16sp" />
 
         <TextView
@@ -54,16 +54,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="?attr/colorOnSurface"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/userPhoneNumberProfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="@string/fragment_user_profile_screen_user_phone_textview"
-            android:textColor="?attr/colorOnSurface"
+            android:text="@string/fragment_user_profile_screen_user_name_textview"
             android:textSize="16sp" />
 
         <LinearLayout
@@ -85,7 +76,7 @@
 
             <Button
                 style="?attr/materialIconButtonFilledStyle"
-                android:id="@+id/iconButton"
+                android:id="@+id/editButton"
                 android:backgroundTint="?attr/colorTertiaryContainer"
                 android:layout_width="50dp"
                 android:layout_height="50dp"

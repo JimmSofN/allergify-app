@@ -6,17 +6,24 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
+import com.example.allergifyapp.R
 import com.example.allergifyapp.databinding.ActivitySettingBinding
-//import com.example.allergifyapp.utils.DataStatus
+import com.example.allergifyapp.localdata.PreferencesManager
 import com.example.allergifyapp.viewmodel.AuthViewModel
 import com.example.allergifyapp.viewmodel.ThemeToggleViewModel
+import com.example.allergifyapp.viewmodel.UserInfoViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SettingActivity : BaseActivity() {
     private lateinit var binding: ActivitySettingBinding
     private val themeToggleViewModel: ThemeToggleViewModel by viewModels()
     private val authViewModel: AuthViewModel by viewModels()
+    private val userInfoViewModel: UserInfoViewModel by viewModels()
+
+    @Inject
+    lateinit var preferencesManager: PreferencesManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +32,7 @@ class SettingActivity : BaseActivity() {
 
         setupButton()
         setupDarkMode()
-
-//        observeLogoutStatus()
+        observeUserInfo()
     }
 
     private fun setupButton() {
@@ -62,23 +68,19 @@ class SettingActivity : BaseActivity() {
         }
     }
 
-//    private fun observeLogoutStatus() {
-//        authViewModel.logoutStatus.observe(this) {
-//            when (it.status) {
-//                DataStatus.Status.LOADING -> {
-//
-//                }
-//                DataStatus.Status.SUCCESS -> {
-//                    Toast.makeText(this, "Logout successful", Toast.LENGTH_SHORT).show()
-//                    val intent = Intent(this, IntroScreenActivity::class.java)
-//                    startActivity(intent)
-//                    finish()
-//                }
-//                DataStatus.Status.ERROR -> {
-//                    Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//        }
-//    }
+    private fun observeUserInfo() {
+        userInfoViewModel.userInfo.observe(this) {
+            if (it.isNotEmpty()) {
+                val userInfo = it[0]
+                binding.ageDataTextView.text = userInfo.age
+                binding.heightDataTextView.text = userInfo.height
+                binding.weightDataTextView.text = userInfo.weight
+            } else {
+                binding.ageDataTextView.text = getString(R.string.activity_setting_textview_age_default)
+                binding.heightDataTextView.text = getString(R.string.activity_setting_textview_height_default)
+                binding.weightDataTextView.text = getString(R.string.activity_setting_textview_weight_default)
+            }
+        }
+    }
 
 }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/userProfileEditDialog"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="1dp"
+    app:strokeWidth="0dp"
+    app:cardBackgroundColor="?attr/colorSurface"
+    android:layout_margin="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView16"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="@string/user_edit_profile_cardview_edit_heading" />
+
+            <Button
+                android:layout_gravity="center"
+                android:id="@+id/closeButton"
+                style="?attr/materialIconButtonFilledStyle"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:icon="@drawable/close_24px"
+                android:contentDescription="@string/user_information_allergy_cardview_edit_close_button_content_description"
+                android:layout_weight="0" />
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="30dp"
+            android:id="@+id/editUserNameTextField"
+            style="?attr/textInputFilledStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:endIconMode="clear_text"
+            app:boxStrokeWidth="0dp"
+            android:hint="@string/user_edit_profile_cardview_edit_username_text_field_hint"
+            android:textColorHint="?attr/colorOnTertiaryContainer"
+            app:boxBackgroundColor="?attr/colorTertiaryContainer">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editUserNameEditText"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_marginTop="30dp"
+            android:id="@+id/userProfileEditSaveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.Icon"
+            app:icon="@drawable/check_24px"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="14sp"
+            app:shapeAppearance="?attr/shapeAppearanceSmallComponent"
+            android:text="@string/user_information_allergy_cardview_edit_save_button_text" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

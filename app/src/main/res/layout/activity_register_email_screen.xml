@@ -7,18 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.registerscreen.RegisterEmailScreen">
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/registerProgressIndicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="gone"
-        android:elevation="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
@@ -107,6 +95,16 @@
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/registerProgressIndicator"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:trackThickness="10dp"
+            app:trackCornerRadius="10dp"
+            android:indeterminate="true" />
 
     </LinearLayout>
 

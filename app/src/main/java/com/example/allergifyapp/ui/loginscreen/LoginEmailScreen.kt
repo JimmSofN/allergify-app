@@ -8,17 +8,20 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.example.allergifyapp.R
+import com.example.allergifyapp.data.local.model.UserEmail
 import com.example.allergifyapp.databinding.ActivityLoginEmailScreenBinding
 import com.example.allergifyapp.ui.main.BaseActivity
 import com.example.allergifyapp.ui.main.MainActivity
 import com.example.allergifyapp.utils.DataStatus
 import com.example.allergifyapp.viewmodel.AuthViewModel
+import com.example.allergifyapp.viewmodel.UserInfoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoginEmailScreen : BaseActivity() {
     private lateinit var binding: ActivityLoginEmailScreenBinding
     private val authViewModel: AuthViewModel by viewModels()
+    private val userInfoViewModel: UserInfoViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,6 +105,11 @@ class LoginEmailScreen : BaseActivity() {
                     binding.loginProgressIndicator.isVisible = true
                 }
                 DataStatus.Status.SUCCESS -> {
+                    val userEmail = binding.emailLoginEditText.text.toString()
+
+                    val userEmailEntity = UserEmail(userEmail = userEmail)
+                    userInfoViewModel.insertUserEmail(userEmailEntity)
+
                     binding.loginProgressIndicator.isVisible = false
                     val intent = Intent(this, MainActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -111,7 +119,7 @@ class LoginEmailScreen : BaseActivity() {
 
                 DataStatus.Status.ERROR -> {
                     binding.loginProgressIndicator.isVisible = false
-                    showToast("Login Gagal: ${it.message}")
+                    showToast(it.message ?: "An unknown error occurred")
                 }
             }
         }
