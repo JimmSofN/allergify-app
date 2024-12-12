@@ -149,6 +149,7 @@
     <string name="fragment_analysis_screen_button_set_calendar_button_textview">Hari Ini</string>
     <string name="fragment_analysis_screen_button_prev_calendar_button_content_description">sebelumnya</string>
     <string name="fragment_analysis_screen_button_next_calendar_button_content_description">selanjutnya</string>
+    <string name="fragment_analysis_screen_allergy_information_card_title">Cooming Soon</string>
 
     // Fragment History Screen
     <string name="fragment_history_screen_textview_heading_title">History</string>
@@ -199,10 +200,13 @@
     <string name="activity_camera_screen_ocr_capture_content_description">Tombol OCR</string>
     <string name="activity_camera_screen_information_layout_content_description">Tombol OCR</string>
     <string name="activity_camera_screen_ocr_capture_textview">Mode OCR</string>
+    <string name="activity_camera_screen_ocr_barcode_textview">Barcode</string>
+    <string name="activity_camera_screen_ocr_barcode_button_content_description">Scan</string>
     <string name="activity_camera_screen_ocr_capture_toggle_button_on">Aktif</string>
     <string name="activity_camera_screen_ocr_capture_toggle_button_off">Mati</string>
     <string name="activity_camera_screen_capture_button_information_textview">Ambil foto untuk menganalisis alergi</string>
     <string name="activity_camera_screen_capture_button_ocr_mode_information_textview">Fitur OCR Aktif, scan label komposisi makanan untuk menganalisis alergi</string>
+
 
     // Allergy detail activity screen
     <string name="activity_allergy_detail_screen_textview_heading">Contoh Product Makanan</string>

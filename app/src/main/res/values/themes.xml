@@ -52,4 +52,8 @@
     </style>
 
     <style name="Theme.AllergifyApp" parent="AppTheme" />
+
+    <style name="Theme.App.Splashscreen" parent="Theme.SplashScreen">
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+    </style>
 </resources>

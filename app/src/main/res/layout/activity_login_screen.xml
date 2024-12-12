@@ -51,26 +51,11 @@
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/loginWithGoogleButton"
-            style="@style/Widget.Material3.Button.Icon"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="@string/activity_login_screen_button_text_register_with_google"
-            android:textColor="?attr/colorOnTertiaryContainer"
-            android:textSize="16sp"
-            app:backgroundTint="?attr/colorTertiaryContainer"
-            app:icon="@drawable/googlelogo"
-            app:iconGravity="textStart"
-            app:iconPadding="10dp" />
-
-        <Button
             android:id="@+id/loginWithEmailButton"
             style="@style/Widget.Material3.Button.Icon"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="60dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="@string/activity_login_screen_button_text_register_with_email"
             android:textColor="?attr/colorOnTertiaryContainer"

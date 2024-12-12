@@ -80,33 +80,43 @@
 
         </LinearLayout>
 
-        <ScrollView
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            app:cardBackgroundColor="?attr/colorSurfaceVariant"
+            app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge"
+            app:strokeWidth="0dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content" >
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="160dp">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card"
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp">
+                    android:src="@drawable/eggvegieonbowlvector"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="120dp"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="?attr/colorPrimary"
+                    android:text="@string/fragment_analysis_screen_allergy_information_card_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/textView17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Test Only" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
-        </ScrollView>
-
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 

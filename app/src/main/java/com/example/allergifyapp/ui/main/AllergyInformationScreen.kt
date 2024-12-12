@@ -88,6 +88,7 @@ class AllergyInformationScreen : BaseActivity() {
     }
 
     private fun observeSetupAllergensAdd() {
+        userAllergenViewModel.getUserAllergens()
         userAllergenViewModel.addUserAllergens.observe(this) {
             when (it.status) {
                 DataStatus.Status.LOADING -> {

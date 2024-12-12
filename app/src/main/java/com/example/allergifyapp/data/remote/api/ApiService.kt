@@ -1,5 +1,7 @@
 package com.example.allergifyapp.data.remote.api
 
+import com.example.allergifyapp.data.remote.model.barcode.BarcodeRequest
+import com.example.allergifyapp.data.remote.model.barcode.BarcodeResponse
 import com.example.allergifyapp.data.remote.model.login.LoginRequest
 import com.example.allergifyapp.data.remote.model.login.LoginResponse
 import com.example.allergifyapp.data.remote.model.register.RegisterRequest
@@ -44,7 +46,7 @@ interface ApiService {
     @DELETE("trackingUser/allergens/{id}")
     suspend fun deleteUserAllergens(@Path("id") id: String): Response<UserAllergenDeleteResponse>
 
-
-
+    @POST("/api/scanning/barcodeScan")
+    suspend fun scanBarcode(@Body request: BarcodeRequest): Response<BarcodeResponse>
 
 }

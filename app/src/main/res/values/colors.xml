@@ -294,4 +294,7 @@
     <color name="black">#000000</color>
     <color name="black_transparent">#92000000</color>
     <color name="ocr_code_reader_square">#FFFFFFFF</color>
+
+    // splashscreen
+    <color name="splash_screen_color">#E3FBFF</color>
 </resources>

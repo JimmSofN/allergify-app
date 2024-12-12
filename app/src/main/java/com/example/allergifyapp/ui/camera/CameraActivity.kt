@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -14,18 +15,24 @@ import androidx.core.content.ContextCompat
 import com.example.allergifyapp.R
 import com.example.allergifyapp.databinding.ActivityCameraBinding
 import com.example.allergifyapp.ui.main.BaseActivity
+import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanIntentResult
+import com.journeyapps.barcodescanner.ScanOptions
 
 class CameraActivity : BaseActivity() {
     private lateinit var binding: ActivityCameraBinding
     private var requestCodeCamera = 100
+    private lateinit var scannerLauncher: ActivityResultLauncher<ScanOptions>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupScannerLauncher()
         setupCheckSelfPermission()
         setupOcrToggleButton()
+        setupBarcodeScanButton()
 
     }
 
@@ -85,6 +92,31 @@ class CameraActivity : BaseActivity() {
             } else {
                 binding.floatingInformationTextView.text = getString(R.string.activity_camera_screen_capture_button_information_textview)
                 binding.floatingInformationImageView.setImageResource(R.drawable.photo_camera_24px)
+            }
+        }
+    }
+
+    private fun setupBarcodeScanButton() {
+        binding.barcodeScanButton.setOnClickListener {
+            startBarcodeScanning()
+        }
+    }
+
+    private fun startBarcodeScanning() {
+        scannerLauncher.launch(
+            ScanOptions().setPrompt("")
+                .setDesiredBarcodeFormats(ScanOptions.ALL_CODE_TYPES)
+        )
+    }
+
+    private fun setupScannerLauncher() {
+        scannerLauncher = registerForActivityResult<ScanOptions, ScanIntentResult>(
+            ScanContract()
+        ) { result ->
+            if (result.contents == null) {
+                Toast.makeText(this, "Dibatalkan", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Hasil: ${result.contents}", Toast.LENGTH_SHORT).show()
             }
         }
     }
