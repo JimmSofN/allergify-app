@@ -44,7 +44,12 @@ class UserInfoRepository @Inject constructor(
         return userEmailDao.getUserEmail()
     }
 
-    suspend fun insertUserEmail(userEmail: UserEmail) {
-        userEmailDao.insertUserEmail(userEmail)
+    suspend fun insertOrUpdateUserEmail(userEmail: UserEmail) {
+        val exitingUserEmail = userEmailDao.getUserEmailById()
+        if (exitingUserEmail != null) {
+            userEmailDao.updateUserEmail(userEmail)
+        } else {
+            userEmailDao.insertUserEmail(userEmail)
+        }
     }
 }

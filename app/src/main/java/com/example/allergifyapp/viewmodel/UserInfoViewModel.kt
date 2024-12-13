@@ -36,7 +36,7 @@ class UserInfoViewModel @Inject constructor(
 
     fun insertUserEmail(userEmail: UserEmail) {
         viewModelScope.launch {
-            userInfoRepository.insertUserEmail(userEmail)
+            userInfoRepository.insertOrUpdateUserEmail(userEmail)
         }
     }
 }

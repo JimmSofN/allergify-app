@@ -54,7 +54,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="?attr/colorOnSurface"
-            android:text="@string/fragment_user_profile_screen_user_name_textview"
+            android:text="@string/fragment_user_profile_screen_user_email_textview"
             android:textSize="16sp" />
 
         <LinearLayout
@@ -86,18 +86,6 @@
                 />
 
         </LinearLayout>
-
-        <Button
-            android:layout_marginTop="30dp"
-            android:id="@+id/deleteAccountButton"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:fontFamily="@font/poppins_bold"
-            android:layout_gravity="center"
-            android:text="@string/fragment_user_profile_screen_user_delete_account_button_textview"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="18sp" />
 
     </LinearLayout>
 

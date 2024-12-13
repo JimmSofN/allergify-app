@@ -118,6 +118,68 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.textfield.TextInputLayout
+            style="?attr/textInputFilledStyle"
+            android:layout_marginTop="30dp"
+            android:id="@+id/filledTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/fragment_analysis_screen_ask_gemini_text_field_title_label">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/askGeminiField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/askGeminiButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:shapeAppearance="?attr/shapeAppearanceCornerSmall"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/fragment_analysis_screen_ask_gemini_button_label" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_marginTop="30dp"
+                    android:id="@+id/textView2"
+                    android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_analysis_screen_ask_gemini_answer_title" />
+
+                <TextView
+                    android:layout_marginBottom="100dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:id="@+id/geminiAnswerText"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
     </LinearLayout>
 
 

@@ -4,6 +4,8 @@ import com.example.allergifyapp.data.remote.model.barcode.BarcodeRequest
 import com.example.allergifyapp.data.remote.model.barcode.BarcodeResponse
 import com.example.allergifyapp.data.remote.model.login.LoginRequest
 import com.example.allergifyapp.data.remote.model.login.LoginResponse
+import com.example.allergifyapp.data.remote.model.product.ProductRequest
+import com.example.allergifyapp.data.remote.model.product.ProductResponse
 import com.example.allergifyapp.data.remote.model.register.RegisterRequest
 import com.example.allergifyapp.data.remote.model.register.RegisterResponse
 import com.example.allergifyapp.data.remote.model.userallergen.UserAllergenResponse
@@ -49,4 +51,9 @@ interface ApiService {
     @POST("/api/scanning/barcodeScan")
     suspend fun scanBarcode(@Body request: BarcodeRequest): Response<BarcodeResponse>
 
+    @POST("/api/products")
+    suspend fun addProduct(@Body request: ProductRequest): Response<ProductResponse>
+
+    @GET("/api/products/{productId}")
+    suspend fun getProduct(@Path("productId") productId: String): Response<ProductResponse>
 }

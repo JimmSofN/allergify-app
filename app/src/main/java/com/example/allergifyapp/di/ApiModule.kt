@@ -1,8 +1,12 @@
 package com.example.allergifyapp.di
 
 import com.example.allergifyapp.data.remote.api.ApiService
+import com.example.allergifyapp.data.remote.api.ApiService2
+import com.example.allergifyapp.data.remote.api.ApiServiceGemini
 import com.example.allergifyapp.localdata.PreferencesManager
 import com.example.allergifyapp.utils.Constant.BASE_URL
+import com.example.allergifyapp.utils.Constant.BASE_URL2
+import com.example.allergifyapp.utils.Constant.BASE_URL_GEMINI
 import com.example.allergifyapp.utils.Constant.NETWORK_TIMEOUT
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -16,6 +20,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -24,6 +29,12 @@ object ApiModule {
 
     @Provides
     fun provideBaseUrl() = BASE_URL
+
+    @Provides
+    fun provideBaseUrl2() = BASE_URL2
+
+    @Provides
+    fun provideBaseUrlGemini() = BASE_URL_GEMINI
 
     @Provides
     fun provideNetworkTimeout() = NETWORK_TIMEOUT
@@ -70,6 +81,7 @@ object ApiModule {
 
     @Provides
     @Singleton
+    @Named("retrofit")
     fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
         return Retrofit.Builder()
             .baseUrl(provideBaseUrl())
@@ -80,7 +92,41 @@ object ApiModule {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): ApiService {
+    @Named("retrofit2")
+    fun provideRetrofit2(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(provideBaseUrl2())
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .client(okHttpClient)
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    @Named("retrofitGemini")
+    fun provideRetrofitGemini(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(provideBaseUrlGemini())
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .client(okHttpClient)
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideApiService(@Named("retrofit")retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideApiService2(@Named("retrofit2")retrofit: Retrofit): ApiService2 {
+        return retrofit.create(ApiService2::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideApiServiceGemini(@Named("retrofitGemini")retrofit: Retrofit): ApiServiceGemini {
+        return retrofit.create(ApiServiceGemini::class.java)
     }
 }

@@ -3,7 +3,6 @@ package com.example.allergifyapp.ui.main
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.allergifyapp.R
 import com.example.allergifyapp.data.local.model.UserInfo
@@ -65,9 +64,8 @@ class SettingUserAdjustment : BaseActivity() {
 
                 userInfoViewModel.insertUserInfo(userInfo)
 
-                Toast.makeText(this, "User  info updated successfully!", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Please fill in all fields correctly.", Toast.LENGTH_SHORT).show()
+                //TODO
             }
             finish()
         }

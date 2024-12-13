@@ -150,6 +150,12 @@
     <string name="fragment_analysis_screen_button_prev_calendar_button_content_description">sebelumnya</string>
     <string name="fragment_analysis_screen_button_next_calendar_button_content_description">selanjutnya</string>
     <string name="fragment_analysis_screen_allergy_information_card_title">Cooming Soon</string>
+    <string name="fragment_analysis_screen_ask_gemini_text_answer_loading">Mohon Menunggu...</string>
+    <string name="fragment_analysis_screen_ask_gemini_text_field_title_label">Tanyakan Allergi di gemini AI</string>
+    <string name="fragment_analysis_screen_ask_gemini_button_label">Tanya Gemini</string>
+    <string name="fragment_analysis_screen_ask_gemini_empty_question">Mohon Ajukan Pertanyaan</string>
+    <string name="fragment_analysis_screen_ask_gemini_answer_title">Jawaban Gemini AI :</string>
+    <string name="fragment_analysis_screen_ask_gemini_answer_example">Biskuit nabati, seperti biskuit yang terbuat dari tepung gandum, beras, atau jagung, *bisa* menyebabkan alergi, meskipun biasanya bukan alergi yang umum seperti alergi kacang atau susu.  Alergi bisa terjadi pada berbagai komponen dalam biskuit nabati</string>
 
     // Fragment History Screen
     <string name="fragment_history_screen_textview_heading_title">History</string>
@@ -160,6 +166,10 @@
 
     // Activity Allergy Information Screen
     <string name="activity_allergy_information_screen_textview_heading">Informasi Allergi</string>
+
+    // History List Card
+    <string name="history_list_card_allergy_title">Contoh Makanan 1</string>
+    <string name="history_list_card_allergy_caution">Mengandung Allergi</string>
 
     // User Allergy Information Card View
     <string name="user_information_allergy_cardview_title">Ikan</string>
@@ -210,6 +220,27 @@
 
     // Allergy detail activity screen
     <string name="activity_allergy_detail_screen_textview_heading">Contoh Product Makanan</string>
+    <string name="activity_allergy_detail_screen_textview_composition">Komposisi</string>
+    <string name="activity_allergy_detail_screen_textview_composition_example">Gula(90%), ikan(2%), tepung rosebrand terbaik lah</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition">Nutrisi</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition_divider">:</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition_calories">Kalori</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition_calories_value">200</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition_fat">Fat</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition_fat_value">10</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition_carbohydrate">Carbs</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition_carbohydrate_value">30</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition_protein">Protein</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition_protein_value">5</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition_sugar">Sugar</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition_sugar_value">8</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition_salt">Salt</string>
+    <string name="activity_allergy_detail_screen_textview_nutrition_salt_value">1</string>
+    <string name="activity_allergy_detail_screen_textview_allergen">Allergen</string>
+    <string name="activity_allergy_detail_screen_textview_allergen_value">Susu, Telur</string>
+
+    // Allergy detail not found activity screen
+    <string name="activity_allergy_detail_not_found_screen_textview_heading">Maaf, saat ini Produk tidak di temukan</string>
 
     // Setting Activity Screen
     <string name="activity_setting_textview_heading">Setting</string>

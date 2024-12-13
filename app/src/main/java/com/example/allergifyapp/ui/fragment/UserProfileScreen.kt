@@ -48,6 +48,15 @@ class UserProfileScreen : Fragment() {
         val dialog = dialogBuilder.create()
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
+        val userNameList = userInfoViewModel.userName.value
+
+        if (!userNameList.isNullOrEmpty()) {
+            val currentUserName = userNameList[0].userName
+            addDialogBinding.editUserNameEditText.setText(currentUserName)
+        } else {
+            addDialogBinding.editUserNameEditText.setText("")
+        }
+
         addDialogBinding.closeButton.setOnClickListener {
             dialog.dismiss()
         }

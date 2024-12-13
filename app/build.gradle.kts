@@ -17,6 +17,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+//        buildConfigField("String", "API_KEY", "\"${API_KEY}\"")
+
     }
 
     buildTypes {
@@ -26,6 +29,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
         }
     }
     compileOptions {
@@ -38,8 +42,13 @@ android {
 
     buildFeatures {
         viewBinding = true
+        mlModelBinding = true
+        buildConfig = true
     }
+
+
 }
+
 
 dependencies {
 
@@ -52,10 +61,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-    // Splash Screen
-    implementation(libs.androidx.core.splashscreen)
-
+    
     // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
@@ -92,9 +98,15 @@ dependencies {
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.androidx.camera.view)
 
+    // Tensorflow Lite
+    implementation(libs.tensorflow.lite.metadata)
+    implementation(libs.tensorflow.lite.task.vision)
+    implementation(libs.tensorflow.lite.support)
+
     // Shimmer Effect Facebook
     implementation(libs.shimmer)
 
     // zxing
     implementation(libs.zxing.android.embedded)
 }
+
